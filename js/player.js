@@ -10,7 +10,7 @@ function Player(name, money) {
     },
     this.placeBet = function (handPos) {
       //      console.log(this.name + " placed bet");
-      if (betPerRound < this.money) {
+      if (betPerRound <= this.money) {
         this.hands[handPos].betsOut = this.hands[handPos].betsOut + betPerRound;
         this.money = this.money - betPerRound;
         this.activePlayer = true;
@@ -38,28 +38,32 @@ function Player(name, money) {
       this.hitCard(handPos + 1);
     },
     this.turnDecision = function (handPos) {
-
-      if (this.hands[handPos][0].value === this.hands[handPos][1].value) {
+      if (this.hands[handPos][0].value === this.hands[handPos][1].value && this.hands[handPos].length === 2) {
         console.log(this.name + " can split hand");
         wantToSplit = confirm("Do you want to split your hand?");
         if (wantToSplit === true) {
-          this.split(handPos);
+          if (this.money >= betPerRound) {
+            this.split(handPos);
+          } else {
+            alert("Whoops, you're out of money");
+          }
+
         };
       };
       var handTotal = calcHand(this.hands[handPos]);
       if (handTotal > 21) {
-        console.log("loss");
+        alert(this.name + " busted!");
       } else {
-        wantToHit = confirm(this.name + ": Do you want to hit a card? HandTotal="+handTotal+" Basic Strategy Recommends: "+basicStrategy[handTotal][_dealer.hands[1].value]);
+        var dealerUpCard = _dealer.hands[1].value;
+        if (dealerUpCard === "J" || dealerUpCard === "Q" || dealerUpCard === "K") {
+          dealerUpCard = 10;
+        } else if (dealerUpCard === "A") {
+          dealerUpCard = 11;
+        };
+        wantToHit = confirm(this.name + ": Do you want to hit a card? HandTotal=" + handTotal + " Basic Strategy Recommends: " + basicStrategy[handTotal][dealerUpCard]);
         if (wantToHit === true) {
           this.hitCard(handPos);
           this.turnDecision(handPos);
-          var dealerUpCard = _dealer.hands[1].value;
-          if (dealerUpCard === "J" || dealerUpCard === "Q" || dealerUpCard === "K") {
-            dealerUpCard = 10;
-          } else if (dealerUpCard === "A") {
-            dealerUpCard = 11;
-          };
         }
 
       };

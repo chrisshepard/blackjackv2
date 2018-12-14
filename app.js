@@ -8,10 +8,10 @@ var root = document.getElementById("root");
 
 var _deck = new gameDeck();
 
-var _players = [new Player("Spongebob", 200),
-new Player("Patrick", 20),
-new Player("Sandy", 200),
-new Player("Mr.Krabs", 200)];
+var _players = [new Player("Spongebob", 50),
+new Player("Patrick", 50),
+new Player("Sandy", 50),
+new Player("Mr.Krabs", 50)];
 
 var _dealer = new Dealer();
 
@@ -25,9 +25,10 @@ function roundSequence() {
       if (_players[i].activePlayer === true) {
         _players[i].turnDecision(handNum);
       };
-      
     };
   };
+  _dealer.turnDecision();
+  _dealer.evaluateResults(_players);
 
 };
 
