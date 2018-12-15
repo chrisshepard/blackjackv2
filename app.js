@@ -26,8 +26,8 @@ function turnSequence(players) {
   })
 };
 
-// Current Code
 
+/*
 function roundSequence() {
   _dealer.requestBets(_players);
   _dealer.dealCards(_players);
@@ -37,26 +37,21 @@ function roundSequence() {
 };
 
 roundSequence();
-
-/* Future Code ****************************************************************
-I want the code to execute task > render dom > give time for animations > repeat
-
 */
+
 
 let requestBets = function () {               
   return new Promise(function (resolve, reject) {
-    _dealer.requestBets(_players);                        //task
+    _dealer.requestBets(_players);
     resolve("Bet's Requested");
-    reject(alert("Error"));
   });
 };
 
 let showBets = function () {
   return new Promise(function (resolve, reject) {
-    render.showBets(_players);                            //render dom
-    setTimeout(() => {                                    //give time for animation
+    render.showBets(_players);
+    setTimeout(() => {
       resolve("Bet's Displayed");
-      reject(alert("Error"));
     }, 5000);
 
   });
@@ -64,18 +59,16 @@ let showBets = function () {
 
 let dealCards = function () {
   return new Promise(function (resolve, reject) {
-    _dealer.dealCards(_players);                        //task
+    _dealer.dealCards(_players);
     resolve("Card's Dealt");
-    reject();
   });
 };
 
 let showDealing = function () {
   return new Promise(function (resolve, reject) {
-    render.showDealing(_players);                            //render dom
-    setTimeout(() => {                                    //give time for animation
+    render.showDealing(_players);
+    setTimeout(() => {
       resolve("Initial Deal Shown");
-      reject();
     }, 10000);
 
   });
@@ -83,37 +76,32 @@ let showDealing = function () {
 
 let playerTurns = function () {
   return new Promise(function (resolve, reject) {
-    turnSequence(_players);                        //task
+    turnSequence(_players);
     resolve("Player's Took Turns");
-    reject();
   });
 };
 
 let showTurns = function () {
   return new Promise(function (resolve, reject) {
-    render.showTurns(_players);                            //render dom
-    setTimeout(() => {                                    //give time for animation
+    render.showTurns(_players);
+    setTimeout(() => {
       resolve("Player's Took Turns");
-      reject();
     }, 20000);
-
   });
 }
 
 let dealerTurn = function () {
   return new Promise(function (resolve, reject) {
-    _dealer.turnDecision();                        //task
+    _dealer.turnDecision();
     resolve("Dealer Took turn.");
-    reject();
   });
 };
 
 let showDealerTurn = function () {
   return new Promise(function (resolve, reject) {
-    render.showDealerTurn(_dealer);                            //render dom
-    setTimeout(() => {                                    //give time for animation
+    render.showDealerTurn(_dealer);
+    setTimeout(() => {
       resolve("Dealer Turn Shown");
-      reject();
     }, 3000);
 
   });
@@ -121,24 +109,22 @@ let showDealerTurn = function () {
 
 let checkResults = function () {
   return new Promise(function (resolve, reject) {
-    _dealer.evaluateResults(_players);                        //task
+    _dealer.evaluateResults(_players);
     resolve("Dealer evaluated Players Hands");
-    reject();
   });
 };
 
 let showResults = function () {
   return new Promise(function (resolve, reject) {
-    render.evaluateResults(_players);                            //render dom
-    setTimeout(() => {                                    //give time for animation
+    render.showResults(_players);
+    setTimeout(() => {
       resolve("Round results Shown");
-      reject();
     }, 15000);
 
   });
 }
 
-//      do these in this sequence
+
 
 requestBets().then(function () {
   return showBets();
@@ -150,7 +136,7 @@ requestBets().then(function () {
   return playerTurns();
 }).then(function () {
   return showTurns();
-}), then(function () {
+}).then(function () {
   return dealerTurn();
 }).then(function () {
   return showDealerTurn();
