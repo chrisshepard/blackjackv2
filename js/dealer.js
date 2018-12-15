@@ -11,12 +11,15 @@ function Dealer() {
       return card;
     },
     this.requestBets = function (players) {
-      players.forEach((player) => {
-        //        console.log(player.name+" place your bet");
-        player.hands[0].betsOut = 0;
-        player.placeBet(0);
+      players.forEach((player, position) => {
+        if (player.isHuman) {
+          //***********************************************************************************8 */USER INPUT BET
+        } else {
+          player.hands[0].betsOut = 0;
+          player.placeBet(0);
+          console.log("betplaced");
+        }
       })
-
     },
     this.dealCards = function (players) {
       if (_deck.length < 25) {
@@ -32,8 +35,6 @@ function Dealer() {
           players.forEach((player) => {
             if (player.activePlayer === true) {
               player.hands[0].push(this.dealSingleCard(true));
-            } else {
-              //              console.log(player.name+" was skipped");
             };
 
           });
@@ -48,7 +49,6 @@ function Dealer() {
           done = true;
         } else if (handTotal < 17) {
           this.hitCard();
-          console.log("hit card");
         };
       };
     },
@@ -58,23 +58,26 @@ function Dealer() {
         player.hands.forEach((hand) => {
           var result;
           var handScore = calcHand(hand);
-          if (handScore === 21) {
-            alert(dealerScore + " " + handScore + " " + player.name + " got BlackJack!");
+          if (handScore === 0) {
+            console.log(player.name + " didnt participate in this round.");
+            result = null;
+          } else if (handScore === 21) {
+            //alert(dealerScore + " " + handScore + " " + player.name + " got BlackJack!");
             result = "B";
           } else if (handScore === dealerScore) {
-            alert(dealerScore + " " + handScore + " " + player.name + " pushed!");
+            //alert(dealerScore + " " + handScore + " " + player.name + " pushed!");
             result = "P";
           } else if (handScore > 21) {
-            alert(dealerScore + " " + handScore + " " + player.name + " lost!");
+            //alert(dealerScore + " " + handScore + " " + player.name + " lost!");
             result = "L";
           } else if (dealerScore > 21) {
-            alert(dealerScore + " " + handScore + " " + player.name + " won! The Dealer Busted!");
+            //alert(dealerScore + " " + handScore + " " + player.name + " won! The Dealer Busted!");
             result = "W";
           } else if (handScore > dealerScore) {
-            alert(dealerScore + " " + handScore + " " + player.name + " won!");
+            //alert(dealerScore + " " + handScore + " " + player.name + " won!");
             result = "W"
           } else {
-            alert(dealerScore + " " + handScore + " " + player.name + " lost!");
+            //alert(dealerScore + " " + handScore + " " + player.name + " lost!");
             result = "L"
           };
           payout(result, player, hand);

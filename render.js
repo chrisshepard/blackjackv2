@@ -1,0 +1,5 @@
+var render = {
+  showBets: function() {
+    
+  }
+}

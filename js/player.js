@@ -1,6 +1,7 @@
-function Player(name, money) {
+function Player(name, money, isHuman) {
   this.name = name,
     this.money = money,
+    this.isHuman = isHuman,
     this.hasInsurance = false,
     this.isDoubledDown = false,
     this.activePlayer = false,
@@ -17,7 +18,6 @@ function Player(name, money) {
       } else {
         //        console.log("You do not have enough money, you have lost the game");
       };
-
     },
     this.doubleDown = function (handPos) {
       this.placeBet(handPos);
@@ -46,8 +46,7 @@ function Player(name, money) {
             this.split(handPos);
           } else {
             alert("Whoops, you're out of money");
-          }
-
+          };
         };
       };
       var handTotal = calcHand(this.hands[handPos]);
@@ -67,5 +66,31 @@ function Player(name, money) {
         }
 
       };
+    },
+    this.computerDecision = function (handPos) {
+      if (this.hands[handPos][0].value === this.hands[handPos][1].value && this.hands[handPos].length === 2) {
+        this.split(handPos);
+      };
+      var handTotal = calcHand(this.hands[handPos]);
+      if (handTotal > 21) {
+        //alert(this.name + " busted!");
+      } else {
+        var dealerUpCard = _dealer.hands[1].value;
+        if (dealerUpCard === "J" || dealerUpCard === "Q" || dealerUpCard === "K") {
+          dealerUpCard = 10;
+        } else if (dealerUpCard === "A") {
+          dealerUpCard = 11;
+        };
+        var strategyResult = basicStrategy[handTotal][dealerUpCard];
+        if (strategyResult === "H") {
+          this.hitCard(handPos);
+          this.computerDecision(handPos);
+        } else if (strategyResult === "D") {
+          this.doubleDown(handPos);
+        } else if (strategyResult === "S") {
+        } else {
+          alert("ERR");
+        };
+      }
     }
 };
