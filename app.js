@@ -40,7 +40,7 @@ roundSequence();
 */
 
 
-let requestBets = function () {               
+let requestBets = function () {
   return new Promise(function (resolve, reject) {
     _dealer.requestBets(_players);
     resolve("Bet's Requested");
@@ -122,7 +122,24 @@ let showResults = function () {
     }, 15000);
 
   });
-}
+};
+
+let prepareForNextRound = function () {
+  return new Promise(function (resolve, reject) {
+    _dealer.clearTable(_players);
+    resolve("table cleared");
+  });
+};
+
+let clearTable = function() {
+  return new Promise(function(resolve,reject) {
+    render.clearTable(_players);
+    setTimeout(() => {
+      resolve("round over");
+    }, 5000);
+    
+  });
+};
 
 
 
@@ -144,4 +161,8 @@ requestBets().then(function () {
   return checkResults();
 }).then(function () {
   return showResults();
-});
+}).then(function(){
+  return prepareForNextRound();
+}).then(function(){
+  return clearTable();
+})

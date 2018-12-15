@@ -13,9 +13,12 @@ function Dealer() {
     this.requestBets = function (players) {
       players.forEach((player, position) => {
         if (player.isHuman) {
-          //***********************************************************************************8 */USER INPUT BET
+          player.hands[0].betsOut = 0;
+          player.hands[0].cardsHitThisRound = 0;
+          //************************************************************************************USER INPUT BET
         } else {
           player.hands[0].betsOut = 0;
+          player.hands[0].cardsHitThisRound = 0;
           player.placeBet(0);
           console.log("betplaced");
         }
@@ -62,28 +65,26 @@ function Dealer() {
             console.log(player.name + " didnt participate in this round.");
             result = null;
           } else if (handScore === 21) {
-            //alert(dealerScore + " " + handScore + " " + player.name + " got BlackJack!");
             result = "B";
           } else if (handScore === dealerScore) {
-            //alert(dealerScore + " " + handScore + " " + player.name + " pushed!");
             result = "P";
           } else if (handScore > 21) {
-            //alert(dealerScore + " " + handScore + " " + player.name + " lost!");
             result = "L";
           } else if (dealerScore > 21) {
-            //alert(dealerScore + " " + handScore + " " + player.name + " won! The Dealer Busted!");
             result = "W";
           } else if (handScore > dealerScore) {
-            //alert(dealerScore + " " + handScore + " " + player.name + " won!");
             result = "W"
           } else {
-            //alert(dealerScore + " " + handScore + " " + player.name + " lost!");
             result = "L"
           };
           payout(result, player, hand);
         })
       });
-
+    },
+    this.clearTable = function(players) {
+      players.forEach(player => {
+        player.hands= [[]];
+      });
 
     }
 }

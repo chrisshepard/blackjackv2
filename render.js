@@ -13,5 +13,8 @@ var render = {
   },
   showResults: function(players) {
     console.log("showing the results"+players);
-  }
+  },
+  clearTable:function(players) {
+    console.log("reset for next round"+players);
+  }, 
 }

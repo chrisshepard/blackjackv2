@@ -8,6 +8,7 @@ function Player(name, money, isHuman) {
     this.hands = [[]],
     this.hitCard = function (handPos) {
       this.hands[handPos].push(_dealer.dealSingleCard(true));
+      this.hands[handPos].cardsHitThisRound++;
     },
     this.placeBet = function (handPos) {
       //      console.log(this.name + " placed bet");
