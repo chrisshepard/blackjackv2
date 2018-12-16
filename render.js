@@ -1,3 +1,13 @@
+function renderTable(players, dealer) {
+  root.appendChild(dealerComponent(dealer));
+  players.forEach(player => {
+    root.appendChild(playerComponent(player));
+  });
+};
+
+
+
+
 var render = {
   showBets: function(players) {
     console.log("bets shown"+players);
