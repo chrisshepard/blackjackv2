@@ -5,6 +5,7 @@ function Player(name, money, isHuman) {
     this.hasInsurance = false,
     this.isDoubledDown = false,
     this.activePlayer = false,
+    this.didPlayerSplit = false,
     this.hands = [[]],
     this.hitCard = function (handPos) {
       this.hands[handPos].push(_dealer.dealSingleCard(true));
@@ -38,6 +39,9 @@ function Player(name, money, isHuman) {
       this.hitCard(handPos);
       this.hitCard(handPos + 1);
       this.didPlayerSplit = true;
+      this.hands[handPos].cardsHitThisRound--;
+      this.hands[handPos+1].cardsHitThisRound--;
+
     },
     this.turnDecision = function (handPos) {
       if (this.hands[handPos][0].value === this.hands[handPos][1].value && this.hands[handPos].length === 2) {
@@ -83,10 +87,6 @@ function Player(name, money, isHuman) {
         this.split(handPos);
       };
       var handTotal = calcHand(this.hands[handPos]);
-      var handHasAce = false;
-      if (this.hands[handPos][0].value || this.hands[handPos][1].value === "A") {
-        handHasAce = true;
-      }
       if (handTotal > 21) {
         //alert(this.name + " busted!");
       } else {
@@ -96,8 +96,7 @@ function Player(name, money, isHuman) {
         } else if (dealerUpCard === "A") {
           dealerUpCard = 11;
         };
-<<<<<<< HEAD
-        if (handHasAce === false) {
+        if (this.hands[handPos].hasAnAce === 0) {
           var strategyResult = basicStrategy[handTotal][dealerUpCard];
           if (strategyResult === "H") {
             this.hitCard(handPos);
@@ -108,28 +107,14 @@ function Player(name, money, isHuman) {
           } else {
             alert("ERR");
           };
-=======
-        var strategyResult = basicStrategy[handTotal][dealerUpCard];
-
-        if (this.hands[handPos].hasAnAce > 0 ) {
-          strategyResult = aceStrategy[handTotal-11][dealerUpCard];
-        };
-
-        if (strategyResult === "H") {
-          this.hitCard(handPos);
-          this.computerDecision(handPos);
-        } else if (strategyResult === "D") {
-          this.doubleDown(handPos);
-        } else if (strategyResult === "S") {
->>>>>>> 22eb7fdb0aadfb3eba0ae3ea2645bc600582c134
-        } else {
-          var strategyResult = aceStrategy[handTotal - 11][dealerUpCard];
+        } else if (this.hands[handPos].hasAnAce !== 0 && this.hands[handPos].valueAsNumber < 21) {
+          var softCard = handTotal - 11;
+          strategyResult = aceStrategy[softCard][dealerUpCard];
+          console.log("ace-used"+this.name+softCard);
           if (strategyResult === "H") {
             this.hitCard(handPos);
             this.computerDecision(handPos);
           } else if (strategyResult === "D") {
-            this.doubleDown(handPos);
-          } else if (strategyResult === "DS") {
             this.doubleDown(handPos);
           } else if (strategyResult === "S") {
           } else {
