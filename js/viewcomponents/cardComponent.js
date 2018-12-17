@@ -1,6 +1,8 @@
-function cardComponent(position, handPos, cardValue, cardSuit) {
+function cardComponent(position, handPos, cardValue, cardSuit, cardID) {
     var card = document.createElement("div");
-    card.className = "card";
+    card.className = "card"+" card"+cardID;
+
+
 
     var value = document.createElement("div");
     value.className = "value";
