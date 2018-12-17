@@ -85,6 +85,6 @@ function Dealer() {
       players.forEach(player => {
         player.hands= [[]];
       });
-
+      this.hands = [];
     }
 }

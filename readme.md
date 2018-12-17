@@ -1,12 +1,19 @@
 ----Personal Notes on things to do ----
 
--2D array for ace strategy
+COMMIT ALL TO commitedNotImplemented folder
 
--render functions
 
--hand component
+(Logan)  2D array for ace strategy  
+      var strategyResult = basicStrategy[handTotal-11][dealerUpCard];
 
--player options component
+(chris, danielle)  render functions
+    (chris)- add intervals
+    (danielle) - make css transitions
+ 
+(Logan)  player options component
+      optionsComponent(player);
+
+(danielle) add chips to bettingBox
 
 
 ----Future Implementations----

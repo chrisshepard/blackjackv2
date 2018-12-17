@@ -1,7 +1,10 @@
 let requestBets = function () {
   return new Promise(function (resolve, reject) {
     _dealer.requestBets(_players);
-    resolve("Bet's Requested");
+    setTimeout(() => {
+      resolve("Bet's Requested");
+    }, 1000);
+
   });
 };
 

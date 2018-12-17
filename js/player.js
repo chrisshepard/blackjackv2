@@ -95,6 +95,7 @@ function Player(name, money, isHuman) {
         } else if (dealerUpCard === "A") {
           dealerUpCard = 11;
         };
+<<<<<<< HEAD
         if (handHasAce === false) {
           var strategyResult = basicStrategy[handTotal][dealerUpCard];
           if (strategyResult === "H") {
@@ -106,6 +107,20 @@ function Player(name, money, isHuman) {
           } else {
             alert("ERR");
           };
+=======
+        var strategyResult = basicStrategy[handTotal][dealerUpCard];
+
+        if (this.hands[handPos].hasAnAce > 0 ) {
+          strategyResult = aceStrategy[handTotal-11][dealerUpCard];
+        };
+
+        if (strategyResult === "H") {
+          this.hitCard(handPos);
+          this.computerDecision(handPos);
+        } else if (strategyResult === "D") {
+          this.doubleDown(handPos);
+        } else if (strategyResult === "S") {
+>>>>>>> 22eb7fdb0aadfb3eba0ae3ea2645bc600582c134
         } else {
           var strategyResult = aceStrategy[handTotal - 11][dealerUpCard];
           if (strategyResult === "H") {
