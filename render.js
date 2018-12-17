@@ -9,6 +9,8 @@ function renderTable(players, dealer) {
 
 var render = {
   showBets: function (players) {
+    var dealerCardArea = document.getElementById("dealerCardArea");
+    dealerCardArea.appendChild(handComponent(_dealer, 0));
     players.forEach(player => {
       var playersPos = _players.map(function (e) { return e.name; }).indexOf(player.name);
       var playersCardArea = document.getElementById("cardArea" + playersPos);
@@ -28,6 +30,8 @@ var render = {
       if (i < _players.length - 1) {
         i++;
       } else {
+        var dealerHand= document.getElementById("handd0");
+        dealerHand.appendChild(cardComponent("d", 0, _dealer.hands[0].value, _dealer.hands[0].suit, 0))
         clearInterval(cardOneInt);
         var cardTwoInt, b = 0;
         function dealSecondCard() {
@@ -37,15 +41,17 @@ var render = {
           if (b < _players.length - 1) {
             b++;
           } else {
+            var dealerHand= document.getElementById("handd0");
+        dealerHand.appendChild(cardComponent("d", 1, _dealer.hands[1].value, _dealer.hands[1].suit, 1))
             clearInterval(cardTwoInt);
           };
         }
-        cardTwoInt = setInterval(dealSecondCard, 1000);
+        cardTwoInt = setInterval(dealSecondCard, 500);
         console.log("showing the deal....");
       }
     }
 
-    cardOneInt = setInterval(dealFirstCard, 1000);
+    cardOneInt = setInterval(dealFirstCard, 500);
   },
   showTurns: function (players) {
     console.log("showing the turns..." + players);

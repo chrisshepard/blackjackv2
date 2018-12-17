@@ -21,17 +21,21 @@
   display:flex;
 }
 
+.card0 {
+  z-index:200
+}
+
 .card1 {
   margin-left:-2vw;
-  z-index: -1;
+  z-index: 199;
 }
 
 .card2 {
   margin-left:-2vw;
-  z-index:-2;
+  z-index:198;
 }
 
 .card3 {
   margin-left:-2vw;
-  z-index:-3;
+  z-index:197;
 }
