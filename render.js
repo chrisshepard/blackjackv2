@@ -30,7 +30,7 @@ var render = {
       if (i < _players.length - 1) {
         i++;
       } else {
-        var dealerHand= document.getElementById("handd0");
+        var dealerHand = document.getElementById("handd0");
         dealerHand.appendChild(cardComponent("d", 0, _dealer.hands[0].value, _dealer.hands[0].suit, 0))
         clearInterval(cardOneInt);
         var cardTwoInt, b = 0;
@@ -41,19 +41,31 @@ var render = {
           if (b < _players.length - 1) {
             b++;
           } else {
-            var dealerHand= document.getElementById("handd0");
-        dealerHand.appendChild(cardComponent("d", 1, _dealer.hands[1].value, _dealer.hands[1].suit, 1))
+            var dealerHand = document.getElementById("handd0");
+            dealerHand.appendChild(cardComponent("d", 1, _dealer.hands[1].value, _dealer.hands[1].suit, 1))
             clearInterval(cardTwoInt);
           };
         }
-        cardTwoInt = setInterval(dealSecondCard, 500);
+        cardTwoInt = setInterval(dealSecondCard, 800);
         console.log("showing the deal....");
       }
     }
-
-    cardOneInt = setInterval(dealFirstCard, 500);
+    cardOneInt = setInterval(dealFirstCard, 800);
   },
   showTurns: function (players) {
+    players.forEach(function (player, playerIndex) {
+      setTimeout(() => {
+        player.hands.forEach(function (hand, handIndex) {
+          setTimeout(() => {
+            var numCardsHit = hand.cardsHitThisRound;
+            console.log(handIndex+numCardsHit+player.name);
+          }, 2000 * handIndex);
+
+        })
+      }, 1000 * playerIndex);
+
+
+    })
     console.log("showing the turns..." + players);
   },
   showDealerTurn: function (dealer) {

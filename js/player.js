@@ -37,6 +37,7 @@ function Player(name, money, isHuman) {
       this.placeBet(handPos + 1);
       this.hitCard(handPos);
       this.hitCard(handPos + 1);
+      this.didPlayerSplit = true;
     },
     this.turnDecision = function (handPos) {
       if (this.hands[handPos][0].value === this.hands[handPos][1].value && this.hands[handPos].length === 2) {
