@@ -52,6 +52,10 @@ function Player(name, money, isHuman) {
         };
       };
       var handTotal = calcHand(this.hands[handPos]);
+      var handHasAce = false;
+      if (this.hands[handPos][0].value || this.hands[handPos][1].value === "A") {
+        handHasAce = true;
+      }
       if (handTotal > 21) {
         alert(this.name + " busted!");
       } else {
@@ -61,7 +65,12 @@ function Player(name, money, isHuman) {
         } else if (dealerUpCard === "A") {
           dealerUpCard = 11;
         };
-        wantToHit = confirm(this.name + ": Do you want to hit a card? HandTotal=" + handTotal + " Basic Strategy Recommends: " + basicStrategy[handTotal][dealerUpCard]);
+        if (handHasAce === false) {
+          wantToHit = confirm(this.name + ": Do you want to hit a card? HandTotal=" + handTotal + " Basic Strategy Recommends: " + basicStrategy[handTotal][dealerUpCard]);
+        } else {
+          wantToHit = confirm(this.name + ": Do you want to hit a card? HandTotal=" + handTotal + " Ace Strategy Recommends: " + aceStrategy[handTotal - 11][dealerUpCard]);
+        }
+
         if (wantToHit === true) {
           this.hitCard(handPos);
           this.turnDecision(handPos);
@@ -74,6 +83,10 @@ function Player(name, money, isHuman) {
         this.split(handPos);
       };
       var handTotal = calcHand(this.hands[handPos]);
+      var handHasAce = false;
+      if (this.hands[handPos][0].value || this.hands[handPos][1].value === "A") {
+        handHasAce = true;
+      }
       if (handTotal > 21) {
         //alert(this.name + " busted!");
       } else {
@@ -83,6 +96,19 @@ function Player(name, money, isHuman) {
         } else if (dealerUpCard === "A") {
           dealerUpCard = 11;
         };
+<<<<<<< HEAD
+        if (handHasAce === false) {
+          var strategyResult = basicStrategy[handTotal][dealerUpCard];
+          if (strategyResult === "H") {
+            this.hitCard(handPos);
+            this.computerDecision(handPos);
+          } else if (strategyResult === "D") {
+            this.doubleDown(handPos);
+          } else if (strategyResult === "S") {
+          } else {
+            alert("ERR");
+          };
+=======
         var strategyResult = basicStrategy[handTotal][dealerUpCard];
 
         if (this.hands[handPos].hasAnAce > 0 ) {
@@ -95,9 +121,22 @@ function Player(name, money, isHuman) {
         } else if (strategyResult === "D") {
           this.doubleDown(handPos);
         } else if (strategyResult === "S") {
+>>>>>>> 22eb7fdb0aadfb3eba0ae3ea2645bc600582c134
         } else {
-          alert("ERR");
-        };
+          var strategyResult = aceStrategy[handTotal - 11][dealerUpCard];
+          if (strategyResult === "H") {
+            this.hitCard(handPos);
+            this.computerDecision(handPos);
+          } else if (strategyResult === "D") {
+            this.doubleDown(handPos);
+          } else if (strategyResult === "DS") {
+            this.doubleDown(handPos);
+          } else if (strategyResult === "S") {
+          } else {
+            alert("ERR");
+          };
+        }
+
       }
     }
 };
