@@ -8,7 +8,7 @@ var root = document.getElementById("root");
 
 var _deck = new gameDeck();
 
-var _players = [new Player("Spongebob", 50, true),
+var _players = [new Player("Spongebob", 50, false),
 new Player("Patrick", 50, false),
 new Player("Sandy", 50, false),
 new Player("Mr.Krabs", 50, false)];
@@ -26,7 +26,6 @@ function turnSequence(players) {
   })
 };
 
-
 /*  -------------------------------------------------------------------instant simulation
 function roundSequence() {
   _dealer.requestBets(_players);
@@ -35,9 +34,11 @@ function roundSequence() {
   _dealer.turnDecision();
   _dealer.evaluateResults(_players);
 };
-
 roundSequence();
 */
+
+
+
 
 renderTable(_players, _dealer);
 
@@ -65,4 +66,16 @@ requestBets().then(function () {
   return clearTable();
 });
 
+/*
 
+var div = document.createElement("div");
+div.className="hand";
+div.appendChild(cardComponent(1,2,10,"Hearts", "card0"));
+div.appendChild(cardComponent(1,2,"A","Spades","card1"));
+div.appendChild(cardComponent(1,2,2,"Diamonds","card2"));
+div.appendChild(cardComponent(1,2,6,"Clubs","card3"));
+
+
+root.appendChild(div);
+root.appendChild(handComponent(_players[0], 2));
+*/

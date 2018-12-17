@@ -1,0 +1,37 @@
+.card {
+  display: flex;
+  flex-direction:column;
+  border-radius: 10px;
+  width: 5vw;
+  height: 8vw;
+  border: black 1px solid;
+  background: white;
+  color:black;
+  align-items: center; }
+
+.value {
+  margin: 0 auto;
+  padding-left: 3vw; }
+
+.suit {
+  width: 3vw;
+  height: auto; }
+
+.hand {
+  display:flex;
+}
+
+.card1 {
+  margin-left:-2vw;
+  z-index: -1;
+}
+
+.card2 {
+  margin-left:-2vw;
+  z-index:-2;
+}
+
+.card3 {
+  margin-left:-2vw;
+  z-index:-3;
+}

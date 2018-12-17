@@ -83,6 +83,11 @@ function Player(name, money, isHuman) {
           dealerUpCard = 11;
         };
         var strategyResult = basicStrategy[handTotal][dealerUpCard];
+
+        if (this.hands[handPos].hasAnAce > 0 ) {
+          strategyResult = aceStrategy[handTotal-11][dealerUpCard];
+        };
+
         if (strategyResult === "H") {
           this.hitCard(handPos);
           this.computerDecision(handPos);
