@@ -39,10 +39,10 @@ roundSequence();
 
 
 
-
 renderTable(_players, _dealer);
 
-requestBets().then(function () {
+function runGame() {
+  requestBets().then(function () {
   return showBets();
 }).then(function () {
   return dealCards();
@@ -65,6 +65,10 @@ requestBets().then(function () {
 }).then(function () {
   return clearTable();
 });*/
+};
+
+
+
 
 /*
 
