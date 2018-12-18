@@ -66,20 +66,3 @@ function runGame() {
   return clearTable();
 });*/
 };
-
-
-
-
-/*
-
-var div = document.createElement("div");
-div.className="hand";
-div.appendChild(cardComponent(1,2,10,"Hearts", "card0"));
-div.appendChild(cardComponent(1,2,"A","Spades","card1"));
-div.appendChild(cardComponent(1,2,2,"Diamonds","card2"));
-div.appendChild(cardComponent(1,2,6,"Clubs","card3"));
-
-
-root.appendChild(div);
-root.appendChild(handComponent(_players[0], 2));
-*/

@@ -1,6 +1,5 @@
 function playerComponent(player) {
   var playersPos = _players.map(function (e) { return e.name; }).indexOf(player.name);
-  console.log(playersPos);
 
   var playerComponent = document.createElement("div");
   playerComponent.className = "player";
