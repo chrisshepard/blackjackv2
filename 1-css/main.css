@@ -80,11 +80,19 @@ body {
 margin-top:1vw; }
 /**************************************************************/
 .modal{
-
-border-radius:20%;
+	position:absolute;
+	margin: 30vh 20%;
+border-radius:5%;
 border-style:solid;
-width:10%;
-margin-left:20px;}
+width:60%;
+height:50%;
+z-index:5;
+background: yellow;
+/*margin-left:20px;*/}
+
+.clicked{
+	z-index:-100;
+}
 
 button{
 border-style: solid;
