@@ -48,13 +48,13 @@ body {
   
   #player1 {
     top: 60vh;
-    right: 35vw; 
+    left: 35vw; 
     transform:rotate(15deg);
   }
   
   #player2 {
     top: 60vh;
-    left: 35vw;
+    right: 35vw;
     transform: rotate(-15deg);
   }
   
