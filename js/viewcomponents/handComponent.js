@@ -8,18 +8,18 @@ function handComponent(player, handPos) {
   var handComponent = document.createElement("div");
   handComponent.className = "hand";
   handComponent.id = "hand" + playersPos + handPos;
+  if (playersPos === "d") {
 
-  var bettingBox = document.createElement("div");
-  bettingBox.className = "bettingBox";
-  bettingBox.id = "bettingBox" + playersPos + handPos
-  if (playersPos !== "d") {
+  } else {
+    var bettingBox = document.createElement("div");
+    bettingBox.className = "bettingBox";
+    bettingBox.id = "bettingBox" + playersPos + handPos
     bettingBox.innerHTML = player.hands[handPos].betsOut;
-  }
+    
+    handComponent.appendChild(bettingBox);
+  };
 
 
-
-
-  handComponent.appendChild(bettingBox);
 
   return handComponent;
 

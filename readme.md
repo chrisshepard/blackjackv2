@@ -1,7 +1,5 @@
 ----Personal Notes on things to do ----
 
-COMMIT ALL TO commitedNotImplemented folder
-
 (chris, danielle)  render functions
     (chris)- add intervals
     (danielle) - make css transitions
@@ -22,3 +20,5 @@ player1 and player2 class - fix angle
 -Insurance & Insurance payout logic
 
 
+-----ISSSUESSSSS ---------
+ update dom chip for double down
