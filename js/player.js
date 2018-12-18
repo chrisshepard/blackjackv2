@@ -96,6 +96,10 @@ function Player(name, money, isHuman) {
         } else if (dealerUpCard === "A") {
           dealerUpCard = 11;
         };
+        var aceInInitialHand = false;
+        if (this.hands[handPos][0].value=== "A" || this.hands[handPos][1].value ==="A") {
+          aceInInitialHand = true;
+        };
         if (this.hands[handPos].hasAnAce === 0) {
           var strategyResult = basicStrategy[handTotal][dealerUpCard];
           if (strategyResult === "H") {
@@ -107,7 +111,7 @@ function Player(name, money, isHuman) {
           } else {
             alert("ERR");
           };
-        } else if (this.hands[handPos].hasAnAce !== 0 && this.hands[handPos].valueAsNumber < 21) {
+        } else if (aceInInitialHand === true && this.hands[handPos].valueAsNumber < 21) {
           var softCard = handTotal - 11;
           strategyResult = aceStrategy[softCard][dealerUpCard];
           console.log("ace-used"+this.name+softCard);
