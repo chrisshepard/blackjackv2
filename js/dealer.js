@@ -66,16 +66,22 @@ function Dealer() {
             result = null;
           } else if (handScore === 21) {
             result = "B";
+            hand.profitLoss = "B";
           } else if (handScore === dealerScore) {
             result = "P";
+            hand.profitLoss = "P";
           } else if (handScore > 21) {
             result = "L";
+            hand.profitLoss = "L";
           } else if (dealerScore > 21) {
             result = "W";
+            hand.profitLoss = "W";
           } else if (handScore > dealerScore) {
             result = "W"
+            hand.profitLoss = "W";
           } else {
             result = "L"
+            hand.profitLoss = "L";
           };
           payout(result, player, hand);
         })

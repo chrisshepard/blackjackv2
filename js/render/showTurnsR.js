@@ -11,7 +11,9 @@ function showTurnsR(player) {
           var currentHand = document.getElementById("hand" + playersPos + handIndex);
           var newHand = handComponent(player, (handIndex + 1));
           var repeatCard = currentHand.lastChild;
+          var playerBank = document.getElementById("bank" + playersPos);
           repeatCard.remove();
+          playerBank.innerHTML = player.money;
 
           newHand.appendChild(cardComponent(playersPos, (handIndex + 1), player.hands[1][0].value, player.hands[1][0].suit, 0));
           cardArea.appendChild(newHand);

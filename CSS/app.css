@@ -89,6 +89,7 @@ h2, h3 {
   background-image: url("../0-media/chip1.png");
   width: 4vw;
   height: 4vw;
-  background-size: 4vw 4vw; }
+  background-size: 4vw 4vw;
+  line-height: 4vw; }
 
 /*# sourceMappingURL=app.css.map */
