@@ -39,14 +39,13 @@ function Player(name, money, isHuman) {
 
     },
     this.turnDecision = function (handPos) {
-      var howLongShouldIWait = 0;
+      var howLongShouldIWait = 5000;
       if (this.hands[handPos][0].value === this.hands[handPos][1].value && this.hands[handPos].length === 2) {
         console.log(this.name + " can split hand");
         wantToSplit = confirm("Do you want to split your hand?");
         if (wantToSplit === true) {
           if (this.money >= betPerRound) {
             this.split(handPos);
-            howLongShouldIWait=4000;
             setTimeout(() => {
                splitHand(this, handPos);
             }, 500);
@@ -62,7 +61,7 @@ function Player(name, money, isHuman) {
         handHasAce = true;
       }
       if (handTotal > 21) {
-        alert("You busted!:(");
+        alert("You busted!");
       } else {
         var dealerUpCard = _dealer.hands[1].value;
         if (dealerUpCard === "J" || dealerUpCard === "Q" || dealerUpCard === "K") {
@@ -70,16 +69,13 @@ function Player(name, money, isHuman) {
         } else if (dealerUpCard === "A") {
           dealerUpCard = 11;
         };
-        setTimeout(() => {
-          if (handHasAce === false) {
-          wantToHit = confirm(this.name + ": Do you want to hit a card? HandTotal=" + handTotal + " Basic Strategy Recommends: " + basicStrategy[handTotal][dealerUpCard]);
+        if (handHasAce === false) {
+          wantToHit = confirm("Do you want to hit a card? HandTotal=" + handTotal + " Basic Strategy Recommends: " + basicStrategy[handTotal][dealerUpCard]);
         } else if (handHasAce === true && this.hands[handPos].acesValuedAtOne === 0) {
-          wantToHit = confirm(this.name + ": Do you want to hit a card? HandTotal=" + handTotal + " Ace Strategy Recommends: " + aceStrategy[handTotal - 11][dealerUpCard]);
+          wantToHit = confirm("Do you want to hit a card? HandTotal=" + handTotal + " Ace Strategy Recommends: " + aceStrategy[handTotal - 11][dealerUpCard]);
         } else {
-          wantToHit = confirm(this.name + ": Do you want to hit a card? HandTotal=" + handTotal + " Basic Strategy Recommends: " + basicStrategy[handTotal][dealerUpCard]);
+          wantToHit = confirm("Do you want to hit a card? HandTotal=" + handTotal + " Basic Strategy Recommends: " + basicStrategy[handTotal][dealerUpCard]);
         }
-        }, 1000+ howLongShouldIWait);
-        
 
         if (wantToHit === true) {
           var card = _dealer.dealSingleCard(true)
