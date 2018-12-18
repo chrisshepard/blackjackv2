@@ -15,20 +15,6 @@ new Player("Mr.Krabs", 50, false)];
 
 var _dealer = new Dealer();
 
-
-/*  -------------------------------------------------------------------instant simulation
-function roundSequence() {
-  _dealer.requestBets(_players);
-  _dealer.dealCards(_players);
-  turnSequence(_players);
-  _dealer.turnDecision();
-  _dealer.evaluateResults(_players);
-};
-roundSequence();
-*/
-
-
-
 renderTable(_players, _dealer);
 
 function runGame() {
@@ -59,3 +45,17 @@ function runGame() {
   return clearTable();
 });
 };
+
+
+
+
+/*  -------------------------------------------------------------------instant simulation
+function roundSequence() {
+  _dealer.requestBets(_players);
+  _dealer.dealCards(_players);
+  turnSequence(_players);
+  _dealer.turnDecision();
+  _dealer.evaluateResults(_players);
+};
+roundSequence();
+*/
