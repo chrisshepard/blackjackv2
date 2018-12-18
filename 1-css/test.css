@@ -40,12 +40,8 @@
   z-index:197;
 }
 
-.card4 {
-  margin-left: -2vw;
-  z-index:196;
-}
-
-.card5 {
-  margin-left: -2vw;
-  z-index:195;
+#floor{
+  position:absolute;
+  top:250px;
+  background: #d13030;
 }
