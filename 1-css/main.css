@@ -45,25 +45,25 @@ body {
     top: 20vh;
     right:5vw;
     justify-content: center;
-   transform:rotate(-95deg);
+   /*transform:rotate(-95deg);*/
   }
   
   #player1 {
     top: 60vh;
     left: 40vw; 
-    transform:rotate(-15deg);
+   /* transform:rotate(-15deg); */
   }
   
   #player2 {
     top: 60vh;
     right: 40vw;
-    transform: rotate(15deg);
+    /* transform: rotate(15deg); */
   }
   
   #player3 {
     top: 20vh;
     left:5vw;
-    transform: rotate(95deg);
+   /* transform: rotate(95deg); */
  
      }
 
@@ -92,7 +92,7 @@ width:60%;
 height:50%;
 z-index:5;
 text-align: center;
-background-image:url("blackjack.jpg");
+background-image:url("../0-media/blackjack.jpg");
 }
 
 

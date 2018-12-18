@@ -49,13 +49,6 @@ h2, h3 {
   margin-left: -2vw;
   z-index: 193; }
 
-	
-  @keyframes fly-in {
-    0%{
-      transform: rotateY(540deg) rotateX(1080deg) translateZ(400px) translateX(80px) translateY(0);
-    }
-  }
-
 .value {
   margin: 0 auto;
   padding-left: 3vw; }
@@ -69,24 +62,8 @@ h2, h3 {
   flex-direction: column;
   text-align: center; }
 
-#position, #zero, #one, #two, #three {
+#position {
   position: absolute; }
-
-#zero {
-  top: 35vh;
-  left: 10vw; }
-
-#one {
-  top: 60vh;
-  left: 32vw; }
-
-#two {
-  top: 60vh;
-  right: 32vw; }
-
-#three {
-  top: 35vh;
-  right: 10vw; }
 
 .hand {
   display: flex;
