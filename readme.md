@@ -2,10 +2,6 @@
 
 COMMIT ALL TO commitedNotImplemented folder
 
-
-(Logan)  2D array for ace strategy  
-      var strategyResult = basicStrategy[handTotal-11][dealerUpCard];
-
 (chris, danielle)  render functions
     (chris)- add intervals
     (danielle) - make css transitions
@@ -13,7 +9,10 @@ COMMIT ALL TO commitedNotImplemented folder
 (Logan)  player options component
       optionsComponent(player);
 
-(danielle) add chips to bettingBox
+(danielle) add chips to bettingBox id= bettingBox+playersPos
+
+player1 and player2 class - fix angle
+
 
 
 ----Future Implementations----
