@@ -54,11 +54,9 @@ h2, h3 {
   z-index: 193; }
 
 	
-  @keyframes fly-in{
-    from{ margin-top:-100px;
-    }
-    to{
-      margin-top:100px;
+  @keyframes fly-in {
+    0%{
+      transform: rotateY(540deg) rotateX(1080deg) translateZ(400px) translateX(80px) translateY(0);
     }
   }
 
