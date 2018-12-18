@@ -10,7 +10,7 @@ let requestBets = function () {
 
 let showBets = function () {
   return new Promise(function (resolve, reject) {
-    render.showBets(_players);
+    showBetsR(_players);
     setTimeout(() => {
       resolve("Bet's Displayed");
     }, 5000);
@@ -27,10 +27,10 @@ let dealCards = function () {
 
 let showDealing = function () {
   return new Promise(function (resolve, reject) {
-    render.showDealing(_players);
+    showDealingR();
     setTimeout(() => {
       resolve("Initial Deal Shown");
-    }, 10000);
+    }, 7000);
 
   });
 };
@@ -48,7 +48,7 @@ let showTurns = function () {
      
     _players.forEach(function(player, position){    
       setTimeout(() => {
-        render.showTurns(player);
+        showTurnsR(player);
         var name = document.getElementById("name" + position);
         name.style.background="green";
       }, 4000*(position+1));
@@ -68,7 +68,7 @@ let dealerTurn = function () {
 
 let showDealerTurn = function () {
   return new Promise(function (resolve, reject) {
-    render.showDealerTurn(_dealer);
+    showDealerTurnR(_dealer);
     setTimeout(() => {
       resolve("Dealer Turn Shown");
     }, 3000);
@@ -85,7 +85,7 @@ let checkResults = function () {
 
 let showResults = function () {
   return new Promise(function (resolve, reject) {
-    render.showResults(_players);
+    showResultsR(_players);
     setTimeout(() => {
       resolve("Round results Shown");
     }, 15000);
@@ -102,7 +102,7 @@ let prepareForNextRound = function () {
 
 let clearTable = function () {
   return new Promise(function (resolve, reject) {
-    render.clearTable(_players);
+    clearTableR(_players, _dealer);
     setTimeout(() => {
       resolve("round over");
     }, 5000);

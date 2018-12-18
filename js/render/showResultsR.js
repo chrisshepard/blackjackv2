@@ -1,0 +1,3 @@
+function showResultsR(players) {
+
+}
