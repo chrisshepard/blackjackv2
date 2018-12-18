@@ -9,8 +9,6 @@ h2, h3 {
   font-family: Helvetica, Arial, sans-serif; }
 
 .card {
-  animation-duration:2s;
-	animation-name:fly-in;
   display: flex;
   flex-direction: column;
   border-radius: 10px;
@@ -21,8 +19,6 @@ h2, h3 {
   align-items: center; }
 
 .card0 {
-  animation-duration:2s;
-	animation-name:fly-in;
   z-index: 200; }
 
 .card1 {
