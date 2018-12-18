@@ -42,25 +42,28 @@ roundSequence();
 renderTable(_players, _dealer);
 
 function runGame() {
+  var modal=document.getElementById("modal");
+  modal.classList.add("clicked");
+
   requestBets().then(function () {
-  return showBets();
-}).then(function () {
-  return dealCards();
-}).then(function () {
-  return showDealing();
-}).then(function () {
-  return playerTurns();
-}).then(function () {
-  return showTurns();
-}).then(function () {
-  return dealerTurn();
-}).then(function () {
-  return showDealerTurn();
-}).then(function () {
-  return checkResults();
-}).then(function () {
-  return showResults();
-})/*.then(function () {
+    return showBets();
+  }).then(function () {
+    return dealCards();
+  }).then(function () {
+    return showDealing();
+  }).then(function () {
+    return playerTurns();
+  }).then(function () {
+    return showTurns();
+  }).then(function () {
+    return dealerTurn();
+  }).then(function () {
+    return showDealerTurn();
+  }).then(function () {
+    return checkResults();
+  }).then(function () {
+    return showResults();
+  })/*.then(function () {
   return prepareForNextRound();
 }).then(function () {
   return clearTable();
