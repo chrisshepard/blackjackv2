@@ -9,6 +9,8 @@ h2, h3 {
   font-family: Helvetica, Arial, sans-serif; }
 
 .card {
+  animation-name:fly-in;
+  animation-duration: 2s;
   display: flex;
   flex-direction: column;
   border-radius: 10px;
@@ -52,7 +54,11 @@ h2, h3 {
 	
   @keyframes fly-in {
     0%{
-      transform: rotateY(540deg) rotateX(1080deg) translateZ(400px) translateX(80px) translateY(0);
+      transform: rotateY(540deg) 
+      rotateX(1080deg)
+       translateZ(400px) 
+      translateX(80px) 
+      translateY(0);
     }
   }
 
