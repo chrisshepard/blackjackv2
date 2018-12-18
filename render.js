@@ -52,54 +52,51 @@ var render = {
     }
     cardOneInt = setInterval(dealFirstCard, 800);
   },
-  showTurns: function (players) { ////fix this, works 6/10 times
-    players.forEach(function (player, playerIndex) {
+  showTurns: function (player) {
+    var position = _players.map(function (e) { return e.name; }).indexOf(player.name);
+    var name = document.getElementById("name" + position);
+    player.hands.forEach(function (hand, handIndex) {
       setTimeout(() => {
-        player.hands.forEach(function (hand, handIndex) {
 
+        if (player.didPlayerSplit === true) {
           setTimeout(() => {
-            if (player.didPlayerSplit === true) {
-              setTimeout(() => {
-                var cardArea = document.getElementById("cardArea" + playerIndex);
-                var currentHand = document.getElementById("hand" + playerIndex + handIndex);
-                var newHand = handComponent(player, (handIndex + 1));
-                var repeatCard = currentHand.lastChild;
-                repeatCard.remove();
+            var playersPos = _players.map(function (e) { return e.name; }).indexOf(player.name);
+            var cardArea = document.getElementById("cardArea" + playersPos);
+            var currentHand = document.getElementById("hand" + playersPos + handIndex);
+            var newHand = handComponent(player, (handIndex + 1));
+            var repeatCard = currentHand.lastChild;
+            repeatCard.remove();
 
-                newHand.appendChild(cardComponent(playerIndex, (handIndex + 1), player.hands[1][0].value, player.hands[1][0].suit, 0));
-                cardArea.appendChild(newHand);
+            newHand.appendChild(cardComponent(playersPos, (handIndex + 1), player.hands[1][0].value, player.hands[1][0].suit, 0));
+            cardArea.appendChild(newHand);
 
-                currentHand.appendChild(cardComponent(playerIndex, handIndex, hand[1].value, hand[1].suit, 1));
-                newHand.appendChild(cardComponent(playerIndex, (handIndex + 1), player.hands[1][1].value, player.hands[1][1].suit, 1));
-
-              }, 600 * handIndex);
-            };
-            var numCardsHit = hand.cardsHitThisRound;
-            console.log(numCardsHit + player.name);
-            if (numCardsHit !== 0) {
-              for (i = 1; i < numCardsHit + 1; i++) {
-                var cardPos = (i + 1);
-                setTimeout(() => {
-                  var playersPos = _players.map(function (e) { return e.name; }).indexOf(player.name);
-                  var thisHand = document.getElementById("hand" + playersPos + handIndex);
-                  thisHand.appendChild(cardComponent(playersPos, handIndex, hand[cardPos].value, hand[cardPos].suit, i));
-                }, 1000 * cardPos);
-
-              };
-            } else {
-
-            };
+            currentHand.appendChild(cardComponent(playersPos, handIndex, hand[1].value, hand[1].suit, 1));
+            newHand.appendChild(cardComponent(playersPos, (handIndex + 1), player.hands[1][1].value, player.hands[1][1].suit, 1));
 
           }, 1000 * handIndex);
-        })
-      }, 1000 * playerIndex);
+        };
 
+        setTimeout(() => {
+          var playersPos = _players.map(function (e) { return e.name; }).indexOf(player.name);
+          hand.forEach(function (card, cardPos) {
+            setTimeout(() => {
+              if (cardPos <= 1) {
 
+              } else {
+                console.log(hand.cardsHitThisRound + player.name);
+                var thisHand = document.getElementById("hand" + playersPos + handIndex);
+                thisHand.appendChild(cardComponent(playersPos, handIndex, card.value, card.suit, cardPos));
+              };
+            }, 1000 * (cardPos - 1));
+          })
+        }, 1200);
+        name.style.background = "blue";
+      }, 3000 * handIndex);
     })
-    console.log("showing the turns..." + players);
+    console.log("showing the turns..." + player);
   },
-  showDealerTurn: function (dealer) {
-    console.log("showing the dealers turn..." + dealer);
+  showDealerTurn: function (dealers) {
+    console.log("showing the dealers turn..." + dealers);
   },
   showResults: function (players) {
     console.log("showing the results..." + players);
