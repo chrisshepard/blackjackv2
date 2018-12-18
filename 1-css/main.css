@@ -9,6 +9,8 @@ body {
     font-family: Helvetica, Arial, sans-serif; }
   
   .card {
+		animation-duration:2s;
+		animation-name:fly-in;
     display: flex;
     flex-direction:column;
     border-radius: 10px;
@@ -17,7 +19,11 @@ body {
     border: black 1px solid;
 		background: white;
 		color:black;
-    align-items: center; }
+		align-items: center; }
+		
+		@keyframes fly-in {  
+			
+		}
   
   .value {
     margin: 0 auto;
@@ -84,19 +90,32 @@ animation-duration: 3s;
 animation-name: slidein;
 position:absolute;
 margin: 30vh 20%;
-border-radius:20%;
-border-style:solid;
+border-radius:40%;
+border-style:dashed;
 width:60%;
 height:50%;
 z-index:5;
 text-align: center;
-background: yellow;
+background-image:url("blackjack.jpg");
 }
 
+
 #modalHeader{
+font-family: 'Play', sans-serif;
+position: relative;
+color:yellow;
+text-align:center;
 animation-duration: 3s;
 animation-name: slidein;
 margin-top:50px; 
+font-size:40px;
+
+} 
+
+.modal p{
+	font-family: 'Play', sans-serif;
+	animation-name: slidein;
+	animation-duration: 3s;
 }
 
 @keyframes slidein {
@@ -115,7 +134,10 @@ margin-top:50px;
 	z-index:-100;
 }
 
+
+
 button{
+font-family: 'Play', sans-serif;
 animation-duration: 3s;
 animation-name: slidein;
 top:20px;
@@ -124,20 +146,19 @@ font-size:20px;
 margin-left:10px;
 margin-bottom:5px;
 border-radius:50%;
-/*font-size:18px;
-border-radius: 50%;
-margin-top:15px;
-margin-left:10px;
-font-family:Arial, Helvetica, sans-serif;
-padding:10px;*/
-/*box-shadow: -30px 0px 60px 60px white;*/
+text-decoration:underline;
+box-shadow: -10px 5px 70px 70px white;
 }
 
+button:hover{
+background-color:pink;}
 
 footer{
-  position: absolute;
+	
+font-family: 'Play', sans-serif;
+position: absolute;
   color:white;
-  bottom:0;
+	bottom:0;
   text-align: center; 
   width:100%;
   font-size:20px;
