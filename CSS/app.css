@@ -18,6 +18,21 @@ h2, h3 {
   background: white;
   align-items: center; }
 
+.card0 {
+  z-index: 200; }
+
+.card1 {
+  margin-left: -2vw;
+  z-index: 199; }
+
+.card2 {
+  margin-left: -2vw;
+  z-index: 198; }
+
+.card3 {
+  margin-left: -2vw;
+  z-index: 197; }
+
 .value {
   margin: 0 auto;
   padding-left: 3vw; }
