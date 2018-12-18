@@ -1,0 +1,221 @@
+body {
+    margin: 0 auto;
+    background: #99ccff; }
+  
+  h1 {
+    font-family: Georgia, Times, serif; }
+  
+  h2, h3 {
+    font-family: Helvetica, Arial, sans-serif; }
+  
+  .card {
+    display: flex;
+    flex-direction:column;
+    border-radius: 10px;
+    width: 5vw;
+    height: 8vw;
+    border: black 1px solid;
+		background: white;
+		color:black;
+    align-items: center; }
+  
+  .value {
+    margin: 0 auto;
+    padding-left: 3vw; }
+  
+  .suit {
+    width: 3vw;
+    height: auto; }
+  
+  .player {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color:white;
+  font-size:14px; }
+
+
+  
+  #position, #player0, #player1, #player2, #player3 {
+    position: absolute; }
+  
+  #player0 {
+    top: 20vh;
+    right:5vw;
+    justify-content: center;
+   transform:rotate(-95deg);
+  }
+  
+  #player1 {
+    top: 60vh;
+    right: 35vw; 
+    transform:rotate(15deg);
+  }
+  
+  #player2 {
+    top: 60vh;
+    left: 35vw;
+    transform: rotate(-15deg);
+  }
+  
+  #player3 {
+    top: 20vh;
+    left:5vw;
+    transform: rotate(95deg);
+ 
+     }
+
+
+  #dealer {
+      position: absolute;
+      top:0vh;
+      left:15vw; 
+  
+      color:black;
+  }
+  
+  .hand {
+    display: flex;
+    flex-direction: row;
+    margin-left:2vw;
+margin-top:1vw; }
+/**************************************************************/
+
+button{
+border-style: solid;
+border-color: white;
+background-color:white;
+font-size:18px;
+border-radius: 50%;
+margin-top:15px;
+margin-left:10px;
+font-family:Arial, Helvetica, sans-serif;
+padding:10px;
+box-shadow: -30px 0px 60px 60px white;
+}
+
+footer{
+  position: absolute;
+  color:white;
+  bottom:0;
+  text-align: center; 
+  width:100%;
+  font-size:20px;
+}
+
+
+#floor{
+	position: absolute;
+	top: 250px;
+	height: 700px;
+	margin-left: -10px;
+	width: 110%;
+	background: #d13030;
+	background: linear-gradient(#570000, #d13030);
+}
+
+#baseboard{
+	position: absolute;
+	top: 230px;
+	height: 20px;
+	margin-left: -10px;
+	width: 110%;
+	background-color: #2b1a03;
+}
+
+#baseboardTop{
+	position: absolute;
+	top: 226px;
+	height: 4px;
+	margin-left:-10px;
+	width: 110%;
+	background-color: #804000;
+}
+
+/************************************************************table styling*******/
+#table{
+position: relative;
+	width: 800px;
+	height: 800px;
+	margin: auto;
+}
+
+#tableBottom-front-lip{
+	position: absolute;
+	top: 300px;
+	left: 107px;
+	width: 600px;
+	height: 350px;
+	background-color: #4d2e04;
+	border-radius: 0 0 50% 50%;
+	transform: rotateX(30deg);
+	box-shadow: -50px 0px 60px 60px #570000, 50px 0px 60px 60px #570000;
+}
+
+#tableBottom-topEnd{
+	position: absolute;
+	top: 300px;
+	left: 107px;
+	width: 600px;
+	height: 322px;
+	background-color: #663300;
+	border-radius: 0 0 50% 50%;
+}
+
+#tableBottom{
+	position: absolute;
+	top: 300px;
+	left: 107px;
+	width: 600px;
+	height: 355px;
+	border-radius: 0 0 50% 50%;
+	background: #663300;
+	background: linear-gradient(#000 20%, #592d10);
+}
+
+#tableFront{
+	position: absolute;
+	top: 0px;
+	left: -24px;
+	width: 848px;
+	height: 550px;
+	background-color: #2b1a03;
+	border-radius: 0 0 50% 50%;
+	transform: rotateX(30deg);
+}
+
+#tableLip{
+	position: absolute;
+	top: -7px;
+	left: -30px;
+	width: 860px;
+	height: 495px;
+	background-color: #663300;
+	border-radius: 0 0 50% 50%;
+	transform: rotateX(30deg);
+	box-shadow: 0px -1px 1px 1px;
+}
+
+#tableInner-lip{
+	position: absolute;
+	top: 7px;
+	left: -6px;
+	width: 812px;
+	height: 475px;
+	background-color: #339933;
+	border-radius: 0 0 50% 50%;
+	transform: rotateX(30deg);
+}
+
+#game-board{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 800px;
+	height: 440px;
+	border-radius: 0 0 50% 50%;
+	transform: rotateX(30deg);
+	background: #006600;
+	background: linear-gradient(#004000, #006600);
+}
+  
