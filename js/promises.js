@@ -37,7 +37,7 @@ let showDealing = function () {
 
 let playerTurns = function () {
   return new Promise(function (resolve, reject) {
-   
+
     turnSequence(_players);
     resolve("Player's Took Turns");
   });
@@ -45,13 +45,16 @@ let playerTurns = function () {
 
 let showTurns = function () {
   return new Promise(function (resolve, reject) {
-     
-    _players.forEach(function(player, position){    
+
+    _players.forEach(function (player, position) {
       setTimeout(() => {
-        showTurnsR(player);
-        var name = document.getElementById("name" + position);
-        name.style.background="green";
-      }, 4000*(position+1));
+        if (player.isHuman === true) {
+          player.turnDecision(0);
+        } else {
+          showTurnsR(player);
+        }
+
+      }, 4000 * (position + 1));
     })
     setTimeout(() => {
       resolve("Player's Took Turns");
@@ -88,7 +91,7 @@ let showResults = function () {
     showResultsR(_players);
     setTimeout(() => {
       resolve("Round results Shown");
-    }, 15000);
+    }, 12000);
 
   });
 };

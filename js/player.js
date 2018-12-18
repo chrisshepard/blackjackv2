@@ -9,16 +9,13 @@ function Player(name, money, isHuman) {
     this.hands = [[]],
     this.hitCard = function (handPos) {
       this.hands[handPos].push(_dealer.dealSingleCard(true));
-      this.hands[handPos].cardsHitThisRound++;
     },
     this.placeBet = function (handPos) {
-      //      console.log(this.name + " placed bet");
       if (betPerRound <= this.money) {
         this.hands[handPos].betsOut = this.hands[handPos].betsOut + betPerRound;
         this.money = this.money - betPerRound;
         this.activePlayer = true;
       } else {
-        //        console.log("You do not have enough money, you have lost the game");
       };
     },
     this.doubleDown = function (handPos) {
@@ -39,8 +36,6 @@ function Player(name, money, isHuman) {
       this.hitCard(handPos);
       this.hitCard(handPos + 1);
       this.didPlayerSplit = true;
-      this.hands[handPos].cardsHitThisRound--;
-      this.hands[handPos+1].cardsHitThisRound--;
 
     },
     this.turnDecision = function (handPos) {
@@ -57,7 +52,7 @@ function Player(name, money, isHuman) {
       };
       var handTotal = calcHand(this.hands[handPos]);
       var handHasAce = false;
-      if (this.hands[handPos][0].value || this.hands[handPos][1].value === "A") {
+      if (this.hands[handPos][0].value === "A" || this.hands[handPos][1].value === "A") {
         handHasAce = true;
       }
       if (handTotal > 21) {
@@ -71,13 +66,21 @@ function Player(name, money, isHuman) {
         };
         if (handHasAce === false) {
           wantToHit = confirm(this.name + ": Do you want to hit a card? HandTotal=" + handTotal + " Basic Strategy Recommends: " + basicStrategy[handTotal][dealerUpCard]);
-        } else {
+        } else if (handHasAce === true && this.hands[handPos].acesValuedAtOne === 0) {
           wantToHit = confirm(this.name + ": Do you want to hit a card? HandTotal=" + handTotal + " Ace Strategy Recommends: " + aceStrategy[handTotal - 11][dealerUpCard]);
+        } else {
+          wantToHit = confirm(this.name + ": Do you want to hit a card? HandTotal=" + handTotal + " Basic Strategy Recommends: " + basicStrategy[handTotal][dealerUpCard]);
         }
 
         if (wantToHit === true) {
-          this.hitCard(handPos);
-          this.turnDecision(handPos);
+          var card = _dealer.dealSingleCard(true)
+          this.hands[handPos].push(card);
+          addCard(this, handPos, card);
+          setTimeout(() => {
+            this.turnDecision(handPos);
+          }, 800);
+
+          
         }
 
       };
@@ -88,7 +91,6 @@ function Player(name, money, isHuman) {
       };
       var handTotal = calcHand(this.hands[handPos]);
       if (handTotal > 21) {
-        //alert(this.name + " busted!");
       } else {
         var dealerUpCard = _dealer.hands[1].value;
         if (dealerUpCard === "J" || dealerUpCard === "Q" || dealerUpCard === "K") {
@@ -109,7 +111,7 @@ function Player(name, money, isHuman) {
             this.doubleDown(handPos);
           } else if (strategyResult === "S") {
           } else {
-            alert("ERR");
+
           };
         } else if (aceInInitialHand === true && this.hands[handPos].valueAsNumber < 21) {
           var softCard = handTotal - 11;
@@ -122,7 +124,7 @@ function Player(name, money, isHuman) {
             this.doubleDown(handPos);
           } else if (strategyResult === "S") {
           } else {
-            alert("ERR");
+
           };
         }
 

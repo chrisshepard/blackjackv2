@@ -12,13 +12,12 @@ function Dealer() {
     },
     this.requestBets = function (players) {
       players.forEach((player, position) => {
-        if (player.isHuman) {
+        if (player.isHuman === true) {
           player.hands[0].betsOut = 0;
-          player.hands[0].cardsHitThisRound = 0;
+          player.placeBet(0);
           //************************************************************************************USER INPUT BET
         } else {
           player.hands[0].betsOut = 0;
-          player.hands[0].cardsHitThisRound = 0;
           player.placeBet(0);
           console.log("betplaced");
         }

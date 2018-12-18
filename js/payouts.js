@@ -4,22 +4,15 @@ function payout(result, player, hand) {
   if (result === "W") {
     var profitLoss = (hand.betsOut * 2);
     player.money = player.money + (profitLoss);
-    //alert(player.name + " won $" + (profitLoss - hand.betsOut));
 
   } else if (result === "L") {
     var profitLoss = hand.betsOut;
-    //alert(player.name + " lost $" + (profitLoss));
   } else if (result === "B") {
     var profitLoss = (hand.betsOut + (hand.betsOut * (3 / 2)))
     player.money = player.money + profitLoss
-    //alert(player.name + " won $" + (profitLoss - hand.betsOut));
-
   } else if (result === "P") {
     player.money = player.money + hand.betsOut;
-    //alert(player.name + " broke even.")
-  } else if (result === null) {
-
   } else {
-    console.log("PAYOUT ERROR");
+
   };
 };

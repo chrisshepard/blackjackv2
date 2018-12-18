@@ -10,21 +10,11 @@ var _deck = new gameDeck();
 
 var _players = [new Player("Spongebob", 50, false),
 new Player("Patrick", 50, false),
-new Player("Sandy", 50, false),
+new Player("Sandy", 50, true),
 new Player("Mr.Krabs", 50, false)];
 
 var _dealer = new Dealer();
 
-function turnSequence(players) {
-  players.forEach(player => {
-    for (handNum = 0; handNum < player.hands.length; handNum++) {
-      console.log("It is " + player.name + "'s turn.");
-      if (player.activePlayer === true) {
-        player.computerDecision(handNum);
-      };
-    };
-  })
-};
 
 /*  -------------------------------------------------------------------instant simulation
 function roundSequence() {
@@ -63,9 +53,9 @@ function runGame() {
     return checkResults();
   }).then(function () {
     return showResults();
-  })/*.then(function () {
+  }).then(function () {
   return prepareForNextRound();
 }).then(function () {
   return clearTable();
-});*/
+});
 };
