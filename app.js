@@ -60,11 +60,11 @@ requestBets().then(function () {
   return checkResults();
 }).then(function () {
   return showResults();
-}).then(function () {
+})/*.then(function () {
   return prepareForNextRound();
 }).then(function () {
   return clearTable();
-});
+});*/
 
 /*
 
