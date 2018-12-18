@@ -75,24 +75,8 @@ h2, h3 {
   flex-direction: column;
   text-align: center; }
 
-#position, #zero, #one, #two, #three {
+#position {
   position: absolute; }
-
-#zero {
-  top: 35vh;
-  left: 10vw; }
-
-#one {
-  top: 60vh;
-  left: 32vw; }
-
-#two {
-  top: 60vh;
-  right: 32vw; }
-
-#three {
-  top: 35vh;
-  right: 10vw; }
 
 .hand {
   display: flex;

@@ -8,7 +8,7 @@ function showDealingR() {
       i++;
     } else {
       var dealerHand = document.getElementById("handd0");
-      dealerHand.appendChild(cardComponent("d", 0, _dealer.hands[0].value, _dealer.hands[0].suit, 0))
+      dealerHand.appendChild(cardComponent("d", 0, _dealer.hands[0].value, _dealer.hands[0].suit, "d0"))
       clearInterval(cardOneInt);
       var cardTwoInt, b = 0;
       function dealSecondCard() {
@@ -19,7 +19,7 @@ function showDealingR() {
           b++;
         } else {
           var dealerHand = document.getElementById("handd0");
-          dealerHand.appendChild(cardComponent("d", 1, _dealer.hands[1].value, _dealer.hands[1].suit, 1))
+          dealerHand.appendChild(cardComponent("d", 1, _dealer.hands[1].value, _dealer.hands[1].suit, "d1"))
           clearInterval(cardTwoInt);
         };
       }

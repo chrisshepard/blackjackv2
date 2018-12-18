@@ -1,6 +1,10 @@
 function cardComponent(position, handPos, cardValue, cardSuit, cardID) {
     var card = document.createElement("div");
+ 
     card.className = "card"+" card"+cardID;
+    if (cardID === "d0") {
+        card.classList.add("facedown");
+    }
 
 
 
