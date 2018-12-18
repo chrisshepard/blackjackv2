@@ -10,7 +10,7 @@ var _deck = new gameDeck();
 
 var _players = [new Player("Spongebob", 50, false),
 new Player("Patrick", 50, false),
-new Player("Sandy", 50, true),
+new Player("You", 50, true),
 new Player("Mr.Krabs", 50, false)];
 
 var _dealer = new Dealer();
