@@ -9,8 +9,7 @@ body {
     font-family: Helvetica, Arial, sans-serif; }
   
   .card {
-		animation-duration:2s;
-		animation-name:fly-in;
+
     display: flex;
     flex-direction:column;
     border-radius: 10px;
@@ -21,10 +20,7 @@ body {
 		color:black;
 		align-items: center; }
 		
-		@keyframes fly-in {  
-			
-		}
-  
+
   .value {
     margin: 0 auto;
     padding-left: 3vw; }

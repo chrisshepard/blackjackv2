@@ -49,6 +49,13 @@ h2, h3 {
   margin-left: -2vw;
   z-index: 193; }
 
+	
+  @keyframes fly-in {
+    0%{
+      transform: rotateY(540deg) rotateX(1080deg) translateZ(400px) translateX(80px) translateY(0);
+    }
+  }
+
 .value {
   margin: 0 auto;
   padding-left: 3vw; }
