@@ -7,9 +7,9 @@
 (Logan)  player options component
       optionsComponent(player);
 
-(danielle) add chips to bettingBox id= bettingBox+playersPos
+->DONE(danielle) add chips to bettingBox id= bettingBox+playersPos 
 
-player1 and player2 class - fix angle
+->DONEplayer1 and player2 class - fix angle
 
 
 
